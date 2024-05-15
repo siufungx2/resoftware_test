@@ -19,7 +19,9 @@ class UserServices implements IUserServices
     {
         try
         {
-            $response = $this->guzzleClient->request('POST', "https://reqres.in/api/users", $userData);
+            $response = $this->guzzleClient->request('POST', "https://reqres.in/api/users", [
+                'json' => $userData
+            ]);
             $body = $response->getBody()->getContents();
             return json_decode($body, true);
         } catch (Exception $e) {
@@ -44,6 +46,35 @@ class UserServices implements IUserServices
         try
         {
             $response = $this->guzzleClient->request('GET', "https://reqres.in/api/users/{$userId}");
+            $body = $response->getBody()->getContents();
+            return json_decode($body, true);
+        } catch (Exception $e) {
+            return throw new getUsersException($e->getMessage());
+        }
+    }
+
+    public function updateUser($userId, $userName, $userJob)
+    {
+        try
+        {
+            $response = $this->guzzleClient->request('PUT', "https://reqres.in/api/users/{$userId}", [
+                'json' => [
+                    'name' => $userName,
+                    'job' => $userJob,
+                ],
+            ]);
+            $body = $response->getBody()->getContents();
+            return json_decode($body, true);
+        } catch (Exception $e) {
+            return throw new getUsersException($e->getMessage());
+        }
+    }
+
+    public function deleteUser($userId)
+    {
+        try
+        {
+            $response = $this->guzzleClient->request('DELETE', "https://reqres.in/api/users/{$userId}");
             $body = $response->getBody()->getContents();
             return json_decode($body, true);
         } catch (Exception $e) {

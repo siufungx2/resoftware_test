@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\IUserServices;
 use App\Http\Requests\getUserListRequest As GetUserListRequest;
 use App\Http\Requests\createUserRequest As CreateUserRequest;
+use App\Http\Requests\updateUserRequest As UpdateUserRequest;
 
 class UserController extends Controller
 {
@@ -17,7 +18,11 @@ class UserController extends Controller
 
     public function createUser(CreateUserRequest $request)
     {
-        return 'okkk';
+        $userData = [
+            'name' => $request->name,
+            'job' => $request->job,
+        ];
+        return $this->userService->createUser($userData);
     }
 
     /**
@@ -38,5 +43,17 @@ class UserController extends Controller
     public function getUserDetails($userId)
     {
         return $this->userService->getUserDetails($userId);
+    }
+
+    public function updateUser(UpdateUserRequest $request, $userId)
+    {
+        $userName = $request->name;
+        $userJob = $request->job;
+        return $this->userService->updateUser($userId, $userName, $userJob);
+    }
+
+    public function deleteUser($userId)
+    {
+        return $this->userService->deleteUser($userId);
     }
 }

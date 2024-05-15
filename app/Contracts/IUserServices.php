@@ -22,4 +22,18 @@ interface IUserServices
      * @return \Illuminate\Http\JsonResponse
      */
     public function getUserDetails($userId);
+
+    /**
+     * @param int $userId
+     * @param string $userName
+     * @param string $userJob
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function updateUser($userId, $userName, $userJob);
+
+    /**
+     * @param int $userId
+     * @return void
+     */
+    public function deleteUser($userId);
 }
