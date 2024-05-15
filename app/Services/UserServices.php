@@ -3,7 +3,7 @@ namespace App\Services;
 
 use Exception;
 use GuzzleHttp\Client As guzzleClient;
-use App\Exceptions\getUsersException As getUsersException;
+use App\Exceptions\userRequestException;
 use App\Contracts\IUserServices;
 
 class UserServices implements IUserServices
@@ -17,68 +17,53 @@ class UserServices implements IUserServices
 
     public function createUser($userData)
     {
-        try
-        {
-            $response = $this->guzzleClient->request('POST', "https://reqres.in/api/users", [
-                'json' => $userData
-            ]);
-            $body = $response->getBody()->getContents();
-            return json_decode($body, true);
-        } catch (Exception $e) {
-            return throw new getUsersException($e->getMessage());
-        }
+        return $this->httpRequest('POST', "https://reqres.in/api/users", [
+            'json' => $userData
+        ]);
     }
 
     public function getUserList($page, $perPage)
     {
-        try
-        {
-            $response = $this->guzzleClient->request('GET', "https://reqres.in/api/users?page={$page}&per_page={$perPage}");
-            $body = $response->getBody()->getContents();
-            return json_decode($body, true);
-        } catch (Exception $e) {
-            return throw new getUsersException($e->getMessage());
-        }
+        return $this->httpRequest('GET', "https://reqres.in/api/users", [
+            'page' => $page,
+            'per_page' => $perPage,
+        ]);
     }
 
     public function getUserDetails($userId)
     {
-        try
-        {
-            $response = $this->guzzleClient->request('GET', "https://reqres.in/api/users/{$userId}");
-            $body = $response->getBody()->getContents();
-            return json_decode($body, true);
-        } catch (Exception $e) {
-            return throw new getUsersException($e->getMessage());
-        }
+        return $this->httpRequest('GET', "https://reqres.in/api/users/{$userId}", null);
     }
 
     public function updateUser($userId, $userName, $userJob)
     {
-        try
-        {
-            $response = $this->guzzleClient->request('PUT', "https://reqres.in/api/users/{$userId}", [
-                'json' => [
-                    'name' => $userName,
-                    'job' => $userJob,
-                ],
-            ]);
-            $body = $response->getBody()->getContents();
-            return json_decode($body, true);
-        } catch (Exception $e) {
-            return throw new getUsersException($e->getMessage());
-        }
+        return $this->httpRequest('PUT', "https://reqres.in/api/users/{$userId}", [
+            'json' => [
+                'name' => $userName,
+                'job' => $userJob,
+            ],
+        ]);
     }
 
     public function deleteUser($userId)
     {
+        return $this->httpRequest('DELETE', "https://reqres.in/api/users/{$userId}", null);
+    }
+
+    /**
+     * @param string $requestType - POST, PUT, DELETE, GET
+     * @param string $requestUrl
+     * @param array|null $requestPayload
+     */
+    private function httpRequest($requestType, $requestUrl, $requestPayload)
+    {
         try
         {
-            $response = $this->guzzleClient->request('DELETE', "https://reqres.in/api/users/{$userId}");
+            $response = $this->guzzleClient->request($requestType, $requestUrl, $requestPayload);
             $body = $response->getBody()->getContents();
             return json_decode($body, true);
         } catch (Exception $e) {
-            return throw new getUsersException($e->getMessage());
+            return throw new userRequestException($e->getMessage());
         }
     }
 }
