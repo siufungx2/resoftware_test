@@ -1,13 +1,21 @@
+// App.vue
 <template>
-    <div id="app">
-      <header>
-        <h1>Vue.js SPA</h1>
-      </header>
-      <main>
-        <aside class="sidebar">
-        </aside>
-        <div class="content">
-        </div>
-      </main>
-    </div>
+  <div id="app">
+    <!-- Other content -->
+    <index />
+  </div>
 </template>
+
+<script>
+import index from './User/index.vue';
+
+export default {
+  components: {
+    index
+  }
+}
+</script>
+
+<style>
+/* Your App.vue styles */
+</style>

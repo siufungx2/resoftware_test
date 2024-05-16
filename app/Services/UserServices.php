@@ -24,10 +24,7 @@ class UserServices implements IUserServices
 
     public function getUserList($page, $perPage)
     {
-        return $this->httpRequest('GET', "https://reqres.in/api/users", [
-            'page' => $page,
-            'per_page' => $perPage,
-        ]);
+        return $this->httpRequest('GET', "https://reqres.in/api/users?page={$page}&per_page={$perPage}", []);
     }
 
     public function getUserDetails($userId)
@@ -59,7 +56,13 @@ class UserServices implements IUserServices
     {
         try
         {
-            $response = $this->guzzleClient->request($requestType, $requestUrl, $requestPayload);
+            // Delete request no payload or data need to pass
+            if ($requestType !== 'DELETE')
+            {
+                $response = $this->guzzleClient->request($requestType, $requestUrl, $requestPayload);
+            } else {
+                $response = $this->guzzleClient->request($requestType, $requestUrl);
+            }
             $body = $response->getBody()->getContents();
             return json_decode($body, true);
         } catch (Exception $e) {
