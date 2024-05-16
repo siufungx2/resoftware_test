@@ -1,0 +1,455 @@
+{
+	"info": {
+		"_postman_id": "02ee3a95-2ef9-4490-98ee-74a351be80a7",
+		"name": "ReSoftwareTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5317205"
+	},
+	"item": [
+		{
+			"name": "Get User List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users?perPage=8&page=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "perPage",
+							"value": "8",
+							"description": "Nullable|integer"
+						},
+						{
+							"key": "page",
+							"value": "1",
+							"description": "Nullable|integer"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "422 Wrong user input",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users?perPage=8&page=1a",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "perPage",
+									"value": "8",
+									"description": "Nullable|integer"
+								},
+								{
+									"key": "page",
+									"value": "1a",
+									"description": "Nullable|integer"
+								}
+							]
+						}
+					},
+					"status": "Unprocessable Content",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 May 2024 12:05:48 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6IlZiYnMwTXhXTnZYamxybXJFbVgzRFE9PSIsInZhbHVlIjoiV01yc3lnY0VGWmlTbjFUWVg2QjFoRjQzN0NwY3c1TzI1MFZEUUVKcHlGcHpzK0lzWFVUT2phZkRaeXhPRnkwd3RBNEVObVNXNGtlakNYWnRJT3lIbTBHaWlrRVF5aXpUZVV4cUVEUXNsVjgxZkpsZjdNdGtVWndzRHJGbk5iL3AiLCJtYWMiOiIzYTM2NzdmZGNiMDdhYzYzYmFjZmUzZjg4YzM4ZTBlZDk2OWE4ZTdkY2JlMWRmZDgyNGI2YjRkZGU0ODZhYzQyIiwidGFnIjoiIn0%3D; expires=Wed, 15 May 2024 14:05:48 GMT; Max-Age=7200; path=/; samesite=lax"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6Ikk0dXJ0eWl6dmZIVXZIM0pBS0pvUmc9PSIsInZhbHVlIjoicnl1aW5GdCtHbE56Z2lpeVFRZUxqcXk4dVZlWG5YeEZ5eTBFeU1kdzhhMUkzZ0NqSzkzVVFsQUwzVTRWd1JZMndVUWdWK3E5Y01lQkl4MU9RUWh0WGU0dkRVRUNDYkJqZVl5djR2b3UyU2FVbzM1YXpGSmRuaDh1Rys5TzlpY2IiLCJtYWMiOiI5MTc5YmViYjRjZDIyOTljMDA3YzRlNDYxNTU1MDFmM2FlZjUzZGRiZWU2MGM0YjI1ZjQyYzY1ZjAzODI1ZjdiIiwidGFnIjoiIn0%3D; expires=Wed, 15 May 2024 14:05:48 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"The page field must be an integer.\"\n}"
+				},
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/users?perPage=8&page=1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"users"
+							],
+							"query": [
+								{
+									"key": "perPage",
+									"value": "8",
+									"description": "Nullable|integer"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Nullable|integer"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 May 2024 12:06:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6InNWSWhCNDN1OGVtYkpuUk1QNFM1SVE9PSIsInZhbHVlIjoiL1RUQ1BGT0VrdTBoOHBtd2EyUHowU1UwMDJ3czFHNWJqQ1dqbWZzQW1JUFkyZUNuMXhJaThhSG16ajNZTTRweFhsR2xSTEltb3BmSzNJZjlkanZYOVJHRTUyR2toSkE3SzRiUVcwc2VNSlNuaDltNFJ1bzhNSE82SkxuaWJSZGgiLCJtYWMiOiI1NmM0NmNhMTFiMmVjNjU0MDU5YjIyOTJlMWIyZWRmOTA3NGFjZGQ0M2Y5YjA1Mzg5ZWY3Njg0OWM1MTE5NjMxIiwidGFnIjoiIn0%3D; expires=Wed, 15 May 2024 14:06:56 GMT; Max-Age=7200; path=/; samesite=lax"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6IjM0RUR1eEljdm5PdEVGblpVQWcvMVE9PSIsInZhbHVlIjoiZGVMKzRjMDMzMGNRMGNIYkR4aU45TnVQWVArTUZLa0hOTVh5dk52ejBWUzNEOVpyYjdLd1Q4S3hEWjZ6ZFVmYkRlaEp0UmlvRHo4dllRQzRaK3RTMzhqWFpWL2R4aFZlVkVvcXZZaHFtblFLTEp1ZWpZeG9rV00rTGJra2FuUk4iLCJtYWMiOiI1MTcxOGVkMjg0NjA2ZTEwMTNiODY2NTczOTc4ZjU4NTY5NWU0YWE3NDBjNjAzM2NlMDg0ZDZkMzA5NWMzODNlIiwidGFnIjoiIn0%3D; expires=Wed, 15 May 2024 14:06:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"page\": 1,\n    \"per_page\": 8,\n    \"total\": 12,\n    \"total_pages\": 2,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"email\": \"george.bluth@reqres.in\",\n            \"first_name\": \"George\",\n            \"last_name\": \"Bluth\",\n            \"avatar\": \"https://reqres.in/img/faces/1-image.jpg\"\n        },\n        {\n            \"id\": 2,\n            \"email\": \"janet.weaver@reqres.in\",\n            \"first_name\": \"Janet\",\n            \"last_name\": \"Weaver\",\n            \"avatar\": \"https://reqres.in/img/faces/2-image.jpg\"\n        },\n        {\n            \"id\": 3,\n            \"email\": \"emma.wong@reqres.in\",\n            \"first_name\": \"Emma\",\n            \"last_name\": \"Wong\",\n            \"avatar\": \"https://reqres.in/img/faces/3-image.jpg\"\n        },\n        {\n            \"id\": 4,\n            \"email\": \"eve.holt@reqres.in\",\n            \"first_name\": \"Eve\",\n            \"last_name\": \"Holt\",\n            \"avatar\": \"https://reqres.in/img/faces/4-image.jpg\"\n        },\n        {\n            \"id\": 5,\n            \"email\": \"charles.morris@reqres.in\",\n            \"first_name\": \"Charles\",\n            \"last_name\": \"Morris\",\n            \"avatar\": \"https://reqres.in/img/faces/5-image.jpg\"\n        },\n        {\n            \"id\": 6,\n            \"email\": \"tracey.ramos@reqres.in\",\n            \"first_name\": \"Tracey\",\n            \"last_name\": \"Ramos\",\n            \"avatar\": \"https://reqres.in/img/faces/6-image.jpg\"\n        },\n        {\n            \"id\": 7,\n            \"email\": \"michael.lawson@reqres.in\",\n            \"first_name\": \"Michael\",\n            \"last_name\": \"Lawson\",\n            \"avatar\": \"https://reqres.in/img/faces/7-image.jpg\"\n        },\n        {\n            \"id\": 8,\n            \"email\": \"lindsay.ferguson@reqres.in\",\n            \"first_name\": \"Lindsay\",\n            \"last_name\": \"Ferguson\",\n            \"avatar\": \"https://reqres.in/img/faces/8-image.jpg\"\n        }\n    ],\n    \"support\": {\n        \"url\": \"https://reqres.in/#support-heading\",\n        \"text\": \"To keep ReqRes free, contributions towards server costs are appreciated!\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get User Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 May 2024 12:21:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6ImthL1p5V01XVmtocS9jc0p5NUZzcnc9PSIsInZhbHVlIjoidjRVMEdIcmd5V1pFY1FwTUV6bnVEcGY0eU1aV1JTQ2xtZjV4MCtoVDN2NmpZNnhCaWxjRzlQeUpiSThCdG5ZZTg2OW4xMFJBNjREdldFMS9UakZyZVlqZmszRC9GMitNVndDeEdaS1NXNlJud2c4L2JRd2p3TFRMUlNabFYyaUEiLCJtYWMiOiI2NDk5NTU0M2NmMjlhNjhmN2JiNTdmNmVjNDRhY2U2ZmQ5NmIwMzRlYTBjZmNjYzJmODljZDJhMmEyYmU1NjViIiwidGFnIjoiIn0%3D; expires=Wed, 15 May 2024 14:21:56 GMT; Max-Age=7200; path=/; samesite=lax"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6IlRLQXZtd2pLdWNjckxnb05ML2RQTWc9PSIsInZhbHVlIjoiOXVDZzZLaVcwSXdZNHFZUHB5L20xTy85N0grZ3RCcjhsVWtOdk4zeStTNTFaWHgvRzUwdzZkaXNXU1ZhS3JVd2pmbVdBRGhtMWk5NHQ2ZXAzODhYaGI1ajIzTkIrR0dVa2Z5N283Zm5ERkszdWNScEVYVVBCa0lNN284b3NwQnUiLCJtYWMiOiJkNjcwMTMxMzFkYmJlZGVjZGYyNmJmZWY2NDg3Y2Y4OWZlYjFlNGE0Mjc5YTQyMzg1NDU2OWZlOTlkYmFkN2Y4IiwidGFnIjoiIn0%3D; expires=Wed, 15 May 2024 14:21:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"email\": \"george.bluth@reqres.in\",\n        \"first_name\": \"George\",\n        \"last_name\": \"Bluth\",\n        \"avatar\": \"https://reqres.in/img/faces/1-image.jpg\"\n    },\n    \"support\": {\n        \"url\": \"https://reqres.in/#support-heading\",\n        \"text\": \"To keep ReqRes free, contributions towards server costs are appreciated!\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Testing\",\n    \"job\": \"QA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Testing\",\n    \"job\": \"QA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/user",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 15 May 2024 13:24:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "XSRF-TOKEN=eyJpdiI6Ing4azRSRDZ0SWlGOHprVGFCVGRySHc9PSIsInZhbHVlIjoiQ3I1Z09Fcm93R01Uak5ZMmphVEtHYjFwVHlZVk5Ic1ZMNjVVcWdzN1BSRlViMDYvcjNxanRqOWxaTytYTCtPTHBqZ3cwMDNtdDRBdHFLMm8wMytrUThvcXZwSnhpM0tzQ2dZZ2Fmdk1RdHNlai9lVUhYN0YrbjVmUE5vSVkvSWsiLCJtYWMiOiIzNjZmZjYyOWZmM2VhOWY1YzUxNWUzMjQzZTc3Mzc2NDAyOWJmMDg3OWNhYmY5YjU3NDhiNGQ4MzM2OGU2ODdmIiwidGFnIjoiIn0%3D; expires=Wed, 15 May 2024 15:24:26 GMT; Max-Age=7200; path=/; samesite=lax"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "laravel_session=eyJpdiI6Im0yZjQ0Zm5xK2RrREFpUGNCNUl3aXc9PSIsInZhbHVlIjoiZlZ6YjlFNlI4T2FlOWpoYnVFNWpyNkhlZGNMSlBudEN2cklZMGNvYXpQNDNvUDlHQm9ZeFlKdXc0d2pjYjFjdWQwaUs4WEhHeldsSVNkMDdNM1dZZ21MSjhycHNEQ2VxY1VMVkRtRDFiZE9JU1BlbGh5QkxUdzcrMGdrdlRGSUkiLCJtYWMiOiIwMmQxZjJmMGI1YzRmY2M5ZTVlZTU0ZjBjZTI1ZTE1YjI1Y2NkZTdmNDViZGM0NDA0NTg0OTM2YjExZjE2MGQ4IiwidGFnIjoiIn0%3D; expires=Wed, 15 May 2024 15:24:26 GMT; Max-Age=7200; path=/; httponly; samesite=lax"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"name\": \"Testing\",\n    \"job\": \"QA\",\n    \"id\": \"120\",\n    \"createdAt\": \"2024-05-15T13:24:26.784Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Testing\",\n    \"job\": \"QA\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/user/10",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"user",
+						"10"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
