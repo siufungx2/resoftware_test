@@ -47,3 +47,4 @@ JS
 
 Fully integrate laravel restful apis i created using fetch()
 ![Alt text](https://github.com/siufungx2/resoftware_test/blob/master/sc/list.png)
+<small>Responsive supported this page ;p</small>
